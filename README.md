@@ -52,11 +52,8 @@ are not guaranteed to earn any bitcoins (rather the opposite).
 
 ## Contributing Guide
 
-Default channel for submitting **questions regarding the API** is [opening new issues][new-issue].
+Default channel for submitting **questions regarding the bot** is [opening new issues][new-issue].
 In cases when information disclosure is&nbsp;not possible, you can contact us at support@quedex.net.
-
-In case you need to add a feature to the API, please [submit an issue][new-issue]
-containing change proposal before submitting a PR.
 
 Pull requests containing bugfixes are wery welcome!
 
