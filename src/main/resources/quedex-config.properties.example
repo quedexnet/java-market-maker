@@ -1,0 +1,40 @@
+net.quedex.client.api.marketStreamUrl = wss://api.quedex.net
+net.quedex.client.api.userStreamUrl = wss://api.quedex.net
+
+net.quedex.client.api.accountId = 123456789
+# value between 0 and 9, has to be different for every WebSocket connection opened to the exchange
+# (e.g. browser and trading bot); our webapp uses nonce_group=0
+net.quedex.client.api.nonceGroup = 5
+
+net.quedex.client.api.qdxPublicKey = -----BEGIN PGP PUBLIC KEY BLOCK-----\n\
+Version: QPG\n\
+\n\
+mQENBFlPvjsBCACr/UfHzXAezskLqcq9NiiaNFDDT5A+biC8VrOglB0ZSQOYRira\n\
+NgQ2Cp8Jd+XU77F+J1012BjB5y87Z+hdnwBDsqF7CjkjeQzsE3PSvm9I+E3cneqx\n\
+UcinRaUD1wfwVytbg9Q9rpqQ7CTjVWY1UPYjs6dAo1WAp/ux/VTeOFbpO0R3D7if\n\
+ZGY1QeISRpLWiMpcG2YCOALnuazABVCNXLhVqa8Y7tt2I+cI0uE9tBf41gjGPPtd\n\
+KdASPVz1plpOEl2dOpmy8jICqcSzUsT4Sy8vAqW3U1HF+TA2QGRcrrUItL4GjxNL\n\
+lcL8wh7mclsjRe5Q5dYnrACC9NWS6vSp/eAPABEBAAG0G1F1ZWRleCA8Y29udGFj\n\
+dEBxdWVkZXgubmV0PokBOAQTAQIAIgUCWU++OwIbAwYLCQgHAwIGFQgCCQoLBBYC\n\
+AwECHgECF4AACgkQzsLQUmv6vk9Rlwf+LiJA37dhDdGFU/fexNRHZWTUh2TdqBsv\n\
+MiNtarf+HlZIioWMCzlHmb3bolVrfFUNUh/GGlPENtlaSmFGuPhMlFcNDGYM+I7k\n\
+ufhM95jxmtzy97NYMeMx4xjnaBAu8kFsvi80BR/05ZhCHqyI3K9NpYoXBfsyzss+\n\
+j/jX1NHayzMmXNdqQ5JjzuICZj0EY9ryLP/jPAZ6DS9LVwi9Vr2JzZheCx5Q77Ud\n\
+HuGTOBu3Azor2f4n4ccELs7lgU7uGrt1cK/oiML9UDmqjelunzTFU/5Q0tp7C3Qm\n\
+1wymd+PYTvvX/5htnLar1nIuYmmvtCZb1zyuzPzJWWtCcFFsiV9kerkBDQRZT747\n\
+AQgAn/9rwQn4yM7pVYO9rTxNveI60lgp4RLKi1WYpAy6gxwUp3zLE/h59rykb7qM\n\
+9QArABsMEGGKt9urq7hjsKu8bM+hVTcAuoDre5qNFEfhZuPBS9LF7wQWDikORZxR\n\
+Mk5WIiCt3U2soQ4Lismw1bLDX8uqkv3GFtR+IaKzuwYBEVPwuZ15EOt9G83JR3uV\n\
+MKqeUtFW9+z5WEAh2JLU6C357sftJIJeWDEgF2TPtQOzc8isI8rpIFNyl6x1Aiy6\n\
+LaSWmOI3d9EQ8SH4LxCXtAgWvnIoPL0JsP5/FWzt6qJR4teu+A2xwG7001va+DUc\n\
+34AbSV9Ogqa519OfbKK6HDyFIQARAQABiQEfBBgBAgAJBQJZT747AhsMAAoJEM7C\n\
+0FJr+r5PtEUH/0KmXQWbm4qXxOnaXrk+CKLDBxtfY6BaoJ6ekdGfqVMd8YM+UGnL\n\
+6d49vex4O80uIhIDSex446gKVlhdwOjIlUFmTCtMgGOa06G2T4sx8a9y2UYK45hN\n\
+rj9aVfhJ8nn9yuPj7cBNtLEYJ4VkRKxJO9XX8cfhUsomhB3DQDbOLfikYqfmupm6\n\
+mYX84CO/DD8JAXx4qt9Rg+5AUQegq26iZ/og1ZjYZ/tvBjrc45u23XCWvgVHbGhb\n\
+wWCNjZijaY1VnTwTe6uZv1AqovZpprqZKWImN5myaJI3AJU2W2FCbI0ezfoVEVO4\n\
+zMipOYZzRziJeCz1gX9geNseLvfJ8EtZRKU=\n\
+=e4C9\n\
+-----END PGP PUBLIC KEY BLOCK-----
+
+net.quedex.client.api.userPrivateKey = <armored prv key>

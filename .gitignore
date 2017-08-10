@@ -1,0 +1,12 @@
+# idea
+.idea
+*.iml
+
+# gradle
+build/
+classes/
+.gradle/
+out/
+
+# sensitive data
+*.properties
