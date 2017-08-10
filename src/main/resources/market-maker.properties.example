@@ -1,0 +1,20 @@
+# sleep time between market maker actions in seconds
+net.quedex.marketmaker.qdxapi.timeSleepSeconds = 60
+
+# futures spread fraction (on a single side!) (= 0.15%)
+net.quedex.marketmaker.qdxapi.futuresSpreadFraction = 0.0015
+
+# mid volatility used for options (= 90%)
+net.quedex.marketmaker.qdxapi.fairVolatility = 0.9
+# options spread fraction on volatility (on a single side!) (= 0.15%)
+net.quedex.marketmaker.qdxapi.volatilitySpreadFraction = 0.01
+
+# number of levels orders are placed on (on a single side!)
+net.quedex.marketmaker.qdxapi.numLevels = 5
+# quantity of an order on a single level
+net.quedex.marketmaker.qdxapi.quantityOnLevel = 50
+
+# delta limit (delta per contract)
+net.quedex.marketmaker.qdxapi.deltaLimit = 100
+# vega limit (vega per notional)
+net.quedex.marketmaker.qdxapi.vegaLimit = 50
