@@ -21,13 +21,13 @@ public class Pricing {
     }
 
     public Metrics calculateMetrics(final Instrument instrument, final double volatility, final double futuresPrice) {
-        if (instrument.getType() == Instrument.Type.FUTURES) {
+        if (instrument.getType() == Instrument.Type.INVERSE_FUTURES) {
             return new Metrics(futuresPrice, 1, 0, 0, 0);
         } else {
             final double timeToMaturity = yearsToMaturity(instrument.getExpirationDate());
-            final double strike = instrument.getStrike().get().doubleValue();
+            final double strike = instrument.getStrike().doubleValue();
             return black76(
-                instrument.getOptionType().get(),
+                instrument.getOptionType(),
                 volatility,
                 futuresPrice,
                 timeToMaturity,

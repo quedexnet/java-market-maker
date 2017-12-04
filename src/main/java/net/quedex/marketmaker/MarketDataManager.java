@@ -1,6 +1,5 @@
 package net.quedex.marketmaker;
 
-import net.quedex.api.market.PriceQuantity;
 import net.quedex.api.market.Quotes;
 import net.quedex.api.market.QuotesListener;
 import org.slf4j.Logger;
@@ -10,7 +9,6 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Optional;
 
 import static com.google.common.base.Preconditions.checkArgument;
 
@@ -30,15 +28,15 @@ public class MarketDataManager implements QuotesListener {
         final Quotes quotes = instrumentIdToQuotes.get(instrumentId);
         checkArgument(quotes != null, "No quotes for %s", instrumentId);
 
-        final Optional<BigDecimal> bidPrice = quotes.getBid().orElse(new PriceQuantity(0)).getPrice();
-        final Optional<BigDecimal> askPrice = quotes.getAsk().orElse(new PriceQuantity(0)).getPrice();
+        final BigDecimal bidPrice = quotes.getBid() != null ? quotes.getBid().getPrice() : null;
+        final BigDecimal askPrice = quotes.getAsk() != null ? quotes.getAsk().getPrice() : null;
 
-        if (bidPrice.isPresent() && askPrice.isPresent()) {
-            return bidPrice.get().add(askPrice.get()).divide(TWO, 8, RoundingMode.HALF_EVEN);
-        } else if (bidPrice.isPresent()) {
-            return bidPrice.get();
-        } else if (askPrice.isPresent()) {
-            return askPrice.get();
+        if (bidPrice != null && askPrice != null) {
+            return bidPrice.add(askPrice).divide(TWO, 8, RoundingMode.HALF_EVEN);
+        } else if (bidPrice != null) {
+            return bidPrice;
+        } else if (askPrice != null) {
+            return askPrice;
         } else {
             return quotes.getLast(); // use last in case of empty OB
         }
