@@ -55,7 +55,7 @@ are not guaranteed to earn any bitcoins (rather the opposite).
 Default channel for submitting **questions regarding the bot** is [opening new issues][new-issue].
 In cases when information disclosure is&nbsp;not possible, you can contact us at support@quedex.net.
 
-Pull requests containing bugfixes are wery welcome!
+Pull requests containing bugfixes are very welcome!
 
 ## License
 
