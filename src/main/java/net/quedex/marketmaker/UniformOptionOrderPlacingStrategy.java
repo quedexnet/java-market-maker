@@ -76,7 +76,7 @@ public class UniformOptionOrderPlacingStrategy implements OrderPlacingStrategy {
         boolean placeBuys = true;
         boolean placeSells = true;
 
-        if (option.getOptionType().get() == Instrument.OptionType.CALL_EUROPEAN) {
+        if (option.getOptionType() == Instrument.OptionType.CALL_EUROPEAN) {
             if (totalDelta >= deltaLimit) {
                 placeBuys = false;
             } else if (totalDelta <= -deltaLimit) {
