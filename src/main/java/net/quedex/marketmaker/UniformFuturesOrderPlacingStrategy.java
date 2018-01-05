@@ -112,7 +112,7 @@ public class UniformFuturesOrderPlacingStrategy implements OrderPlacingStrategy 
             roundingMode == RoundingMode.UP || roundingMode == RoundingMode.DOWN,
             "Only rounding UP or DOWN supported"
         );
-        checkArgument(price.compareTo(BigDecimal.ZERO) > 0, "price=%s <=0", price);
+        checkArgument(price.compareTo(BigDecimal.ZERO) >= 0, "price=%s < 0", price);
 
         final BigDecimal remainder = price.remainder(tickSize);
         if (remainder.compareTo(BigDecimal.ZERO) == 0) {
