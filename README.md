@@ -1,7 +1,5 @@
 # Simple Market Maker in Java
 
-**This implementation is outdated - we will update it soon.**
-
 An implementation of a dummy market making bot which intends to be a starting point showing a possible way of 
 integration with Quedex Java API. Before starting to work with this code, please read the 
 [documentation][java-api-docs] of our Java API.
