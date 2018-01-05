@@ -26,12 +26,18 @@ public class Pricing {
         } else {
             final double timeToMaturity = yearsToMaturity(instrument.getExpirationDate());
             final double strike = instrument.getStrike().doubleValue();
+            // option inverse notation is taken into account when pricing (https://quedex.net/edu/option_valuation)
             return black76(
-                instrument.getOptionType(),
+                // invert option type
+                instrument.getOptionType() == Instrument.OptionType.CALL_EUROPEAN
+                    ? Instrument.OptionType.PUT_EUROPEAN
+                    : Instrument.OptionType.CALL_EUROPEAN,
                 volatility,
-                futuresPrice,
+                // invert futures price
+                1 / futuresPrice,
                 timeToMaturity,
-                strike
+                // invert strike
+                1 / strike
             );
         }
     }
