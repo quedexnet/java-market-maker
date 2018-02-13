@@ -1,5 +1,5 @@
-net.quedex.client.api.marketStreamUrl = wss://api.quedex.net
-net.quedex.client.api.userStreamUrl = wss://api.quedex.net
+net.quedex.client.api.marketStreamUrl = wss://api.quedex.net/market_stream
+net.quedex.client.api.userStreamUrl = wss://api.quedex.net/user_stream
 
 net.quedex.client.api.accountId = 123456789
 # value between 0 and 9, has to be different for every WebSocket connection opened to the exchange
