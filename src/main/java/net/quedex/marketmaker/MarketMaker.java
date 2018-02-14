@@ -3,6 +3,9 @@ package net.quedex.marketmaker;
 import net.quedex.api.market.Instrument;
 import net.quedex.api.market.Quotes;
 import net.quedex.api.market.QuotesListener;
+import net.quedex.api.user.LiquidationOrderCancelled;
+import net.quedex.api.user.LiquidationOrderFilled;
+import net.quedex.api.user.LiquidationOrderPlaced;
 import net.quedex.api.user.OpenPosition;
 import net.quedex.api.user.OpenPositionListener;
 import net.quedex.api.user.OrderCancelFailed;
@@ -228,6 +231,21 @@ public class MarketMaker implements QuotesListener, OrderListener, OpenPositionL
                 orderListener.onOrderFilled(orderFilled);
             }
         });
+    }
+
+    @Override
+    public void onLiquidationOrderPlaced(final LiquidationOrderPlaced liquidationOrderPlaced) {
+        // TODO: do something sensible
+    }
+
+    @Override
+    public void onLiquidationOrderCancelled(final LiquidationOrderCancelled liquidationOrderCancelled) {
+        // TODO: do something sensible
+    }
+
+    @Override
+    public void onLiquidationOrderFilled(final LiquidationOrderFilled liquidationOrderFilled) {
+        // TODO: do something sensible
     }
 
     private void catchingExecute(final Runnable runnable) {

@@ -1,6 +1,9 @@
 package net.quedex.marketmaker;
 
 import com.google.common.collect.ImmutableMap;
+import net.quedex.api.user.LiquidationOrderCancelled;
+import net.quedex.api.user.LiquidationOrderFilled;
+import net.quedex.api.user.LiquidationOrderPlaced;
 import net.quedex.api.user.OrderCancelFailed;
 import net.quedex.api.user.OrderCancelled;
 import net.quedex.api.user.OrderFilled;
@@ -92,6 +95,21 @@ public class OrderManager implements OrderListener {
         }
 
         LOGGER.debug("fill={}, orderAfterFill={}", orderFilled, genericOrder);
+    }
+
+    @Override
+    public void onLiquidationOrderPlaced(final LiquidationOrderPlaced liquidationOrderPlaced) {
+        // TODO: do something sensible
+    }
+
+    @Override
+    public void onLiquidationOrderCancelled(final LiquidationOrderCancelled liquidationOrderCancelled) {
+        // TODO: do something sensible
+    }
+
+    @Override
+    public void onLiquidationOrderFilled(final LiquidationOrderFilled liquidationOrderFilled) {
+        // TODO: do something sensible
     }
 
     private void removeOrder(final long clientOrderId) {
