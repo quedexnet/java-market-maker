@@ -10,6 +10,7 @@ import static com.google.common.base.Preconditions.checkArgument;
 
 public class MarketMakerConfiguration {
     private final int timeSleepSeconds;
+    private final int maxBatchSize;
 
     private final BigDecimal futuresSpreadFraction;
 
@@ -23,6 +24,7 @@ public class MarketMakerConfiguration {
     private final double deltaLimit;
 
     public MarketMakerConfiguration(final int timeSleepSeconds,
+                                    final int maxBatchSize,
                                     final BigDecimal futuresSpreadFraction,
                                     final double fairVolatility,
                                     final double volatilitySpreadFraction,
@@ -31,6 +33,8 @@ public class MarketMakerConfiguration {
                                     final double deltaLimit,
                                     final double vegaLimit) {
         checkArgument(timeSleepSeconds > 0, "timeSleepSeconds=%s <= 0", timeSleepSeconds);
+        checkArgument(maxBatchSize > 0, "maxBatchSize <= 0");
+        checkArgument(maxBatchSize <= 3000, "maxBatchSize > 3000");
         checkArgument(
             futuresSpreadFraction.compareTo(BigDecimal.ZERO) > 0,
             "futuresSpreadFraction=%s <=0", futuresSpreadFraction
@@ -47,6 +51,7 @@ public class MarketMakerConfiguration {
         );
 
         this.timeSleepSeconds = timeSleepSeconds;
+        this.maxBatchSize = maxBatchSize;
         this.futuresSpreadFraction = futuresSpreadFraction;
         this.fairVolatility = fairVolatility;
         this.volatilitySpreadFraction = volatilitySpreadFraction;
@@ -60,6 +65,7 @@ public class MarketMakerConfiguration {
         final Configuration configuration = new PropertiesConfiguration(fileName);
         return new MarketMakerConfiguration(
             configuration.getInt(ConfigKey.TIME_SLEEP_SECONDS.getKey()),
+            configuration.getInt(ConfigKey.MAX_BATCH_SIZE.getKey()),
             new BigDecimal(configuration.getString(ConfigKey.SPREAD_FRACTION.getKey())),
             configuration.getDouble(ConfigKey.FAIR_VOLATILITY.getKey()),
             configuration.getDouble(ConfigKey.VOLATILITY_SPREAD_FRACTION.getKey()),
@@ -73,6 +79,8 @@ public class MarketMakerConfiguration {
     public int getTimeSleepSeconds() {
         return timeSleepSeconds;
     }
+
+    public int getMaxBatchSize() { return maxBatchSize; }
 
     public BigDecimal getFuturesSpreadFraction() {
         return futuresSpreadFraction;
@@ -104,6 +112,7 @@ public class MarketMakerConfiguration {
 
     private enum ConfigKey {
         TIME_SLEEP_SECONDS("timeSleepSeconds"),
+        MAX_BATCH_SIZE("maxBatchSize"),
         SPREAD_FRACTION("futuresSpreadFraction"),
         FAIR_VOLATILITY("fairVolatility"),
         VOLATILITY_SPREAD_FRACTION("volatilitySpreadFraction"),

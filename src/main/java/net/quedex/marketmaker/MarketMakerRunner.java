@@ -1,5 +1,6 @@
 package net.quedex.marketmaker;
 
+import com.google.common.collect.Lists;
 import net.quedex.api.common.CommunicationException;
 import net.quedex.api.market.Instrument;
 import net.quedex.api.market.MarketStream;
@@ -136,6 +137,8 @@ public class MarketMakerRunner {
         if (orderSpecs.isEmpty()) {
             return;
         }
-        userStream.batch(orderSpecs);
+        for (final List<OrderSpec> batch : Lists.partition(orderSpecs, marketMakerConfiguration.getMaxBatchSize())) {
+            userStream.batch(batch);
+        }
     }
 }
