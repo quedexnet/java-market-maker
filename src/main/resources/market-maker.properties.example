@@ -1,6 +1,9 @@
 # sleep time between market maker actions in seconds
 net.quedex.marketmaker.timeSleepSeconds = 60
 
+# max num of commands in batch
+net.quedex.marketmaker.maxBatchSize = 100
+
 # futures spread fraction (on a single side!) (= 0.15%)
 net.quedex.marketmaker.futuresSpreadFraction = 0.0015
 
