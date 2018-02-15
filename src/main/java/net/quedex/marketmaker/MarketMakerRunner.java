@@ -5,11 +5,13 @@ import net.quedex.api.common.CommunicationException;
 import net.quedex.api.market.Instrument;
 import net.quedex.api.market.MarketStream;
 import net.quedex.api.user.AccountState;
+import net.quedex.api.user.CancelAllOrdersSpec;
 import net.quedex.api.user.OrderSpec;
 import net.quedex.api.user.UserStream;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.CompletableFuture;
@@ -98,12 +100,10 @@ public class MarketMakerRunner {
                 LOGGER.info("Cancelling all pending orders");
                 if (marketMaker != null) {
                     try {
-                        send(marketMaker.getAllOrderCancels().get());
+                        send(Collections.singletonList(CancelAllOrdersSpec.INSTANCE));
                         Thread.sleep(10_000);
                     } catch (final InterruptedException e) {
                         // ignore
-                    } catch (final ExecutionException e) {
-                        LOGGER.error("Error getting all order cancels", e);
                     }
                 }
             } finally {

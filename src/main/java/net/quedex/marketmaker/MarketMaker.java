@@ -4,6 +4,7 @@ import net.quedex.api.market.Instrument;
 import net.quedex.api.market.Quotes;
 import net.quedex.api.market.QuotesListener;
 import net.quedex.api.user.CancelAllOrdersFailed;
+import net.quedex.api.user.CancelAllOrdersSpec;
 import net.quedex.api.user.LiquidationOrderCancelled;
 import net.quedex.api.user.LiquidationOrderFilled;
 import net.quedex.api.user.LiquidationOrderPlaced;
@@ -119,16 +120,9 @@ public class MarketMaker implements QuotesListener, OrderListener, OpenPositionL
         try {
             final List<OrderSpec> orderSpecs = new ArrayList<>();
 
+            orderSpecs.add(CancelAllOrdersSpec.INSTANCE);
+
             for (final Instrument futures : instrumentManager.getTradedFutures()) {
-                final int instrId = futures.getInstrumentId();
-
-                orderSpecs.addAll(
-                    orderManager.getOrderIdsForInstrument(instrId)
-                        .stream()
-                        .map(OrderCancelSpec::new)
-                        .collect(Collectors.toList())
-                );
-
                 orderSpecs.addAll(
                     futuresOrderPalcingStrategy.getOrders(futures).stream()
                         .map(o -> o.toLimitOrderSpec(orderManager.getNextOrderId()))
@@ -138,15 +132,6 @@ public class MarketMaker implements QuotesListener, OrderListener, OpenPositionL
             }
 
             for (final Instrument option : instrumentManager.getTradedOptions()) {
-                final int instrId = option.getInstrumentId();
-
-                orderSpecs.addAll(
-                    orderManager.getOrderIdsForInstrument(instrId)
-                        .stream()
-                        .map(OrderCancelSpec::new)
-                        .collect(Collectors.toList())
-                );
-
                 orderSpecs.addAll(
                     optionOrderPlacingStrategy.getOrders(option).stream()
                         .map(o -> o.toLimitOrderSpec(orderManager.getNextOrderId()))
