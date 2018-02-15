@@ -132,6 +132,7 @@ public class OrderManager implements OrderListener {
 
     @Override
     public void onAllOrdersCancelled() {
+        LOGGER.debug("AllOrdersCancelled");
         orderIdToOrder.clear();
         instrumentIdToOrderIdToOrder.clear();
     }
