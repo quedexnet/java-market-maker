@@ -75,7 +75,7 @@ public class Pricing {
             price = 0;
         }
 
-        return new Metrics(price, delta, gammaP, vega, theta);
+        return new Metrics(price, -delta, gammaP, vega, theta);
     }
 
     private double yearsToMaturity(final long expirationDate) {
