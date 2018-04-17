@@ -1,5 +1,8 @@
 # Simple Market Maker in Java
 
+<a href="https://travis-ci.org/quedexnet/java-market-maker/"><img src="https://travis-ci.org/quedexnet/java-market-market.svg?branch=master" align=right></a>
+
+
 An implementation of a dummy market making bot which intends to be a starting point showing a possible way of 
 integration with Quedex Java API. Before starting to work with this code, please read the 
 [documentation][java-api-docs] of our Java API.
